@@ -30,16 +30,17 @@ library(dfphase1)
 # Example: ucisecom Dataset
 ```{r}
 data("ucisecom")
-x = prepro(ucisecom$V2)
-n = length(x)
+# The 2nd variable is selected and then named as x1
+x1 = prepro(ucisecom$V2)[1:61]
+n = length(x1)
 ```
 
 # Construct EPC control limits using Pickands' method
 ```{r}
-Pickands(x, pn=Pn_Pick(n))
+Pickands(x1, pn=Pn_Pick(n))
 ```
 
 # Construct EPC control limits using the Moment method
 ```{r}
-Moment(x, pn=Pn_Pick(n))
+Moment(x1, pn=Pn_Mom(n))
 ```
