@@ -1,0 +1,16 @@
+Package: SemEPC
+Title: SemEPC
+Version: 0.0.1
+Authors@R: 
+    person("Chung-I", "Li", ,"cili@ncku.edu.tw", role = c("aut", "cre"))
+Description: The SemEPC package incorporates 
+    estimation uncertainty through the exceedance probability criterion to ensure the desired in-control performance using extreme value theory.
+Imports:
+    DescTools, dfphase1
+License: GPL
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
