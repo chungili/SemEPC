@@ -14,19 +14,21 @@ Moment(x, pn, alpha = 0.0027)
 \item{alpha}{false alarm rate}
 }
 \value{
-A list containing the estimated tail index, control limits, and the width of the control limits.
+A list containing the estimated tail index, control limits, the width of the control limits, sample size, and the nominal coverage probability.
 \item{Tail_Index_Upper}{uppler tail index}
 \item{Tail_Index_Lower}{lower tail index}
 \item{UCL}{upper control limit}
 \item{LCL}{lower control limit}
 \item{Band.Moment}{width of control limits}
+\item{n}{sample size}
+\item{pn}{the nominal coverage probability}
 }
 \description{
 Moment method
 }
 \examples{
 data(ucisecom)
-x = prepro(ucisecom$V2)
-n = length(x)
-Moment(x, pn=Pn_Mom(n))
+x1 = prepro(ucisecom$V2)[1:61]
+n = length(x1)
+Moment(x1, pn=Pn_Mom(n))
 }
