@@ -47,12 +47,14 @@ Pn_Pick <- function(n) {
 #' @param pn the nominal coverage probability
 #' @param alpha false alarm rate
 #'
-#' @returns A list containing the estimated tail index, control limits, and the width of the control limits.
+#' @returns A list containing the estimated tail index, control limits, the width of the control limits, sample size, and the nominal coverage probability.
 #'   \item{Tail_Index_Upper}{uppler tail index}
 #'   \item{Tail_Index_Lower}{lower tail index}
 #'   \item{UCL}{upper control limit}
 #'   \item{LCL}{lower control limit}
-#'   \item{Band.Moment}{width of control limits}
+#'   \item{Band.Pickands}{width of control limits}
+#'   \item{n}{sample size}
+#'   \item{pn}{the nominal coverage probability}
 #' @examples
 #' data(ucisecom)
 #' x1 = prepro(ucisecom$V2)[1:61]
@@ -261,7 +263,10 @@ Pickands = function(x, pn, alpha = 0.0027){
   ooc.Pickands.p=round(100*ooc.Pickands/length(x),2)
 
 
-  return(list(Tail_Index_Upper=r_upper,Tail_Index_Lower=r_lower, UCL = UCL, LCL = LCL, Band.Pickands = Band.Pickands))
+  return(list(Tail_Index_Upper=r_upper,Tail_Index_Lower=r_lower,
+              UCL = UCL, LCL = LCL,
+              Band.Pickands = Band.Pickands,
+              n = n, pn=pn))
 }
 
 #' Moment
@@ -271,17 +276,19 @@ Pickands = function(x, pn, alpha = 0.0027){
 #' @param pn the nominal coverage probability
 #' @param alpha false alarm rate
 #'
-#' @returns A list containing the estimated tail index, control limits, and the width of the control limits.
+#' @returns A list containing the estimated tail index, control limits, the width of the control limits, sample size, and the nominal coverage probability.
 #'   \item{Tail_Index_Upper}{uppler tail index}
 #'   \item{Tail_Index_Lower}{lower tail index}
 #'   \item{UCL}{upper control limit}
 #'   \item{LCL}{lower control limit}
 #'   \item{Band.Moment}{width of control limits}
+#'   \item{n}{sample size}
+#'   \item{pn}{the nominal coverage probability}
 #' @examples
 #' data(ucisecom)
-#' x = prepro(ucisecom$V2)
-#' n = length(x)
-#' Moment(x, pn=Pn_Mom(n))
+#' x1 = prepro(ucisecom$V2)[1:61]
+#' n = length(x1)
+#' Moment(x1, pn=Pn_Mom(n))
 #' @export
 Moment = function(x, pn, alpha = 0.0027){
   Rx=sort(x)
@@ -540,5 +547,8 @@ Moment = function(x, pn, alpha = 0.0027){
   ooc.Moment.p=round(100*ooc.Moment/length(x),2)
 
 
-  return(list(Tail_Index_Upper=r_upper,Tail_Index_Lower=r_lower,UCL = UCL, LCL = LCL, Band.Moment = Band.Moment))
+  return(list(Tail_Index_Upper=r_upper,Tail_Index_Lower=r_lower,
+              UCL = UCL, LCL = LCL,
+              Band.Moment = Band.Moment,
+              n = n, pn=pn))
 }
