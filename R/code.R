@@ -55,9 +55,9 @@ Pn_Pick <- function(n) {
 #'   \item{Band.Moment}{width of control limits}
 #' @examples
 #' data(ucisecom)
-#' x = prepro(ucisecom$V2)
-#' n = length(x)
-#' Pickands(x, pn=Pn_Pick(n))
+#' x1 = prepro(ucisecom$V2)[1:61]
+#' n = length(x1)
+#' Pickands(x1, pn=Pn_Pick(n))
 #' @export
 Pickands = function(x, pn, alpha = 0.0027){
   #  calculate tail index  Pickands (1975)
