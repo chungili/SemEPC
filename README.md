@@ -6,11 +6,11 @@ This R package implements estimation uncertainty using the exceedance probabilit
 ```{r}
 install.packages("devtools")
 ```
-3. Load the `devtools` package
+2. Load the `devtools` package
 ```{r}
 library(devtools)
 ```
-4. Install the `SemEPC` package
+3. Install the `SemEPC` package
 ```{r}
 install_github("chungili/SemEPC")
 ```
