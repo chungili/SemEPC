@@ -27,7 +27,7 @@ library(DescTools)
 library(dfphase1)
 ```
 
-# Example: ucisemcom Dataset
+# Example: ucisecom Dataset
 ```{r}
 data("ucisecom")
 x = prepro(ucisecom$V2)
