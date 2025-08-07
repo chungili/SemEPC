@@ -29,7 +29,7 @@ library(dfphase1)
 
 # Example: ucisemcom Dataset
 ```{r}
-data("ucisemcom")
+data("ucisecom")
 x = prepro(ucisecom$V2)
 n = length(x)
 ```
